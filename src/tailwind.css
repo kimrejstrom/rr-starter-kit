@@ -1,0 +1,30 @@
+/* purgecss start ignore */
+@tailwind base;
+h1 {
+  @apply font-bold text-3xl tracking-tighter text-indigo-900;
+}
+
+h2 {
+  @apply font-bold text-2xl tracking-tighter text-indigo-900;
+}
+
+h3 {
+  @apply font-bold text-xl tracking-tighter text-indigo-900;
+}
+
+.spinner {
+  @apply border-4 rounded-full border-indigo-300 w-16 h-16;
+  border-top-color: theme('colors.indigo.500');
+  animation: spin 1s linear infinite;
+}
+
+@tailwind components;
+/* purgecss end ignore */
+
+@tailwind utilities;
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
