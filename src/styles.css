@@ -605,7 +605,9 @@ h3 {
   color: #3c366b;
 }
 
-.mode-dark h1, .mode-dark h2, .mode-dark h3 {
+.mode-dark h1,
+.mode-dark h2,
+.mode-dark h3 {
   color: #c3dafe;
 }
 

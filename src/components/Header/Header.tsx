@@ -63,19 +63,57 @@ export const Header: React.FC = () => {
           </div>
           <div className="block mt-4 lg:inline-block lg:mt-0 text-indigo-700 hover:text-indigo-900 dark:text-indigo-100 dark-hover:text-indigo-400 mr-4">
             {theme === ThemeMode.DARK ? (
-              <span className="border rounded-full border-green-400 flex items-center cursor-pointer w-12 bg-green-400 justify-end">
+              <>
+                <a className="inline-block mr-4" href="TODO">
+                  <img
+                    src="https://icon.now.sh/github/24/fff"
+                    alt="GitHub logo"
+                  />
+                </a>
                 <button
+                  className="inline-block"
+                  title="Disable Dark Mode"
                   onClick={() => dispatch(setThemeMode(ThemeMode.LIGHT))}
-                  className="rounded-full border w-6 h-6 border-green-400 bg-white focus:outline-none"
-                ></button>
-              </span>
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    width="24"
+                    height="24"
+                    className="fill-current text-yellow-300"
+                  >
+                    <path d="M 8 0 A 8 8 0 0 0 8 16 A 8 8 0 0 0 8 0"></path>
+                  </svg>
+                </button>
+              </>
             ) : (
-              <span className="border rounded-full border-gray-300 flex items-center cursor-pointer bg-gray-300 w-12 justify-start">
+              <>
+                <a className="inline-block mr-4" href="TODO">
+                  <img
+                    src="https://icon.now.sh/github/24/000"
+                    alt="GitHub logo"
+                  />
+                </a>
                 <button
+                  className="inline-block"
                   onClick={() => dispatch(setThemeMode(ThemeMode.DARK))}
-                  className="rounded-full border w-6 h-6 border-gray-300 bg-white focus:outline-none"
-                ></button>
-              </span>
+                  title="Enable Dark Mode"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    width="24"
+                    height="24"
+                    className="fill-current text-yellow-100"
+                  >
+                    <path
+                      fill="black"
+                      d="M 8 0 A 8 8 0 0 0 8 16 A 8 8 0 0 0 8 0"
+                    ></path>
+                    <path d="M 8 2 A 6 6 0 0 0 8 14 A 8 14 0 0 0 13.196152422706632,11 A 6 6 0 0 1 8 2 z"></path>
+                  </svg>
+                </button>
+              </>
             )}
           </div>
         </div>

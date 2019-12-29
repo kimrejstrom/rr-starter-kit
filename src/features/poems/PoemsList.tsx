@@ -25,8 +25,8 @@ export const PoemsList = ({ poems }: Props) => {
               {poem.lines
                 .slice(0, 5)
                 .filter(line => line)
-                .map(line => (
-                  <span>
+                .map((line, index) => (
+                  <span key={index}>
                     {`– "${line}"`}
                     <br />
                   </span>

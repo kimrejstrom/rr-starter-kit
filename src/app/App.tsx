@@ -13,7 +13,11 @@ const App: React.FC = () => {
   // Get theme from Redux
   const theme = useSelector((state: RootState) => state.theme);
   return (
-    <div className={theme === ThemeMode.LIGHT ? 'mode-light' : 'mode-dark'}>
+    <div
+      className={`theme ${
+        theme === ThemeMode.LIGHT ? 'mode-light' : 'mode-dark'
+      }`}
+    >
       <Router>
         <Header />
         {/* A <Switch> looks through its children <Route>s and
