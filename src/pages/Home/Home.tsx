@@ -2,8 +2,8 @@ import React from 'react';
 import headerImage from 'pages/Home/header.svg';
 
 export const Home: React.FC = () => (
-  <div className="container mx-auto">
-    <img src={headerImage} className="w-1/3 m-auto pt-10 pb-10" alt="logo" />
+  <div className="container mx-auto max-w-3xl p-6">
+    <img src={headerImage} className="w-2/3 m-auto pt-10 pb-10" alt="logo" />
     <h1 className="text-center">RR Starter-kit 2020</h1>
     <div className="text-center p-4">
       <p className="text-lg p-4">An opinionated frontend starter-kit:</p>

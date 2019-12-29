@@ -18,6 +18,25 @@ A batteries included front-end starter kit for 2020.
 ### React
 
 ### Redux Toolkit
+Used in this example to manage the global state, consisting of the
+dark mode setting and the fetching of poems.
+
+```ts
+const poemsSlice = createSlice({
+  name: 'poems',
+  initialState: poemsInitialState,
+  reducers: {
+    getPoemsStart: startLoading,
+    getPoemsSuccess(state, { payload }: PayloadAction<PoemsResult>) {
+      const { poems } = payload;
+      state.poems = poems;
+      state.isLoading = false;
+      state.error = null;
+    },
+    getPoemsFailure: loadingFailed,
+  },
+});
+```
 
 ### Axios
 
@@ -79,5 +98,9 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 - [x] Add ability to change how many poems are shown
 - [x] Add router
-- [ ] Add Tailwind.css
-- [ ] Add dark/light mode
+- [x] Add Tailwind.css
+- [x] Add dark/light mode
+- [x] Fix mobile nav
+- [ ] Add Github actions
+- [ ] Host on Netlify
+- [ ] Add documentation

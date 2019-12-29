@@ -12,6 +12,14 @@ h3 {
   @apply font-bold text-xl tracking-tighter text-indigo-900;
 }
 
+.mode-dark h1, .mode-dark h2, .mode-dark h3 {
+  @apply text-indigo-200;
+}
+
+pre {
+  @apply text-sm bg-gray-900 text-green-300 p-4 rounded mt-4 mb-4;
+}
+
 .spinner {
   @apply border-4 rounded-full border-indigo-300 w-16 h-16;
   border-top-color: theme('colors.indigo.500');
