@@ -14,8 +14,8 @@ jobs:
       with:
         node-version: '12.x'
     - run: npm install
-    - run: npm typecheck
-    - run: npm lint
-    - run: npm test
+    - run: npm run typecheck
+    - run: npm run lint
+    - run: npm run test
       env:
         CI: true
