@@ -24,14 +24,13 @@ It is out-of-the-box compatible with deployments to static hosting providers suc
 RR Starter-kit offers a streamlined development experience using the following technologies:
 
 | **Tech** | **Description** |**Learn More**|
-|----------|-------|---|
+|--------|---------|-----|
 | [Create React App](https://create-react-app.dev/)  | Modern build tools with zero-config for React apps. | [Official Docs](https://create-react-app.dev/docs/getting-started)  |
 | [React](https://facebook.github.io/react/)  |   Fast, composable client-side components. | [Official Docs](https://reactjs.org/docs/getting-started.html)  |
 | [Redux Toolkit](https://redux-toolkit.js.org/) |  The official, opinionated, batteries-included toolset for efficient Redux development. | [Official Docs](https://redux-toolkit.js.org/introduction/quick-start) |
 | [React Router](https://github.com/ReactTraining/react-router) | A complete routing library for React. | [Official Docs](https://reacttraining.com/react-router/web/guides/quick-start) |
 | [Axios](https://github.com/axios/axios) |  Promise based HTTP client for the browser and node.js  | [Official Docs](https://github.com/axios/axios) |
-| [Tailwind CSS](https://webpack.js.org) | A utility-first CSS framework for
-rapidly building custom designs. | [Official Docs](https://tailwindcss.com/docs/installation) |
+| [Tailwind CSS](https://webpack.js.org) | A utility-first CSS framework for rapidly building custom designs. | [Official Docs](https://tailwindcss.com/docs/installation) |
 | [MDX](https://mdxjs.com/) | MDX is an authorable format that lets you seamlessly write JSX in your Markdown documents. | [Official Docs](https://mdxjs.com/getting-started/create-react-app)| 
 | [Jest](https://jestjs.io/) | Automated tests with built-in expect assertions | [Official Docs](https://jestjs.io/docs/en/getting-started) |
 | [Enzyme](https://airbnb.io/enzyme/) | DOM testing without a browser using Node. | [Official Docs](https://airbnb.io/enzyme/docs/installation/react-16.html)| 
