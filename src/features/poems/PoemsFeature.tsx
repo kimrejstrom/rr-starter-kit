@@ -4,6 +4,7 @@ import { RootState } from 'app/rootReducer';
 import { fetchPoems } from 'features/poems/poemsSlice';
 import { PoemsList } from 'features/poems/PoemsList';
 import Button from 'components/Button/Button';
+import { Alert } from 'components/Alert/Alert';
 
 export const PoemsListPage = () => {
   const dispatch = useDispatch();
@@ -28,9 +29,8 @@ export const PoemsListPage = () => {
   // Handle errors
   if (poemsError) {
     return (
-      <div>
-        <h1 className="text-center">Something went wrong...</h1>
-        <div>{poemsError.toString()}</div>
+      <div className="m-auto w-2/3 mb-6">
+        <Alert title={'Something went wrong'} body={poemsError.toString()} />
       </div>
     );
   }

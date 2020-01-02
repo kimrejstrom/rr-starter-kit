@@ -19,14 +19,14 @@ const randomItem = (items: Array<any>) =>
   items[Math.floor(Math.random() * items.length)];
 
 export async function getRandomAuthor(): Promise<string> {
-  const url = `http://poetrydb.org/author`;
+  const url = `https://poetrydb.org/author`;
 
   const authorsResponse = await axios.get<AuthorsResponse>(url);
   return randomItem(authorsResponse.data.authors);
 }
 
 export async function getPoemsByAuthor(author: string): Promise<PoemsResult> {
-  const url = `http://poetrydb.org/author/${encodeURI(author)}`;
+  const url = `https://poetrydb.org/author/${encodeURI(author)}`;
 
   const poemsResponse = await axios.get<Poem[]>(url);
   return { poems: poemsResponse.data };
