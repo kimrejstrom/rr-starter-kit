@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e4fca50e-05f7-415e-950f-725bbabe781e/deploy-status)](https://app.netlify.com/sites/vibrant-wing-cac636/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e4fca50e-05f7-415e-950f-725bbabe781e/deploy-status)](https://app.netlify.com/sites/rr-starter-kit/deploys)
 
 # RR Starter kit 2020
 
