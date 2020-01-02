@@ -2,6 +2,9 @@
   "name": "rr-starter-kit",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=12"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "1.1.0",
     "@types/enzyme": "3.10.4",
@@ -12,6 +15,7 @@
     "@types/react-dom": "16.9.4",
     "@types/react-redux": "7.1.5",
     "@types/react-router-dom": "5.1.3",
+    "@types/webpack-env": "1.14.1",
     "axios": "0.19.0",
     "enzyme": "3.10.0",
     "enzyme-adapter-react-16": "1.15.1",
