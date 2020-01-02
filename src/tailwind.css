@@ -1,15 +1,79 @@
 /* purgecss start ignore */
 @tailwind base;
+
+/*//////////////*/
+/* Proxima Nova */
+/*//////////////*/
+
+@font-face {
+  font-family: 'ProximaNova';
+  src: url('fonts/mark_simonson_-_proxima_nova_bold_it.eot');
+  src: url('fonts/mark_simonson_-_proxima_nova_bold_it.eot?#iefix')
+      format('embedded-opentype'),
+    url('fonts/mark_simonson_-_proxima_nova_bold_it.woff2') format('woff2'),
+    url('fonts/mark_simonson_-_proxima_nova_bold_it.woff') format('woff'),
+    url('fonts/mark_simonson_-_proxima_nova_bold_it.svg#proxima_novabold_italic')
+      format('svg');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ProximaNova';
+  src: url('fonts/mark_simonson_-_proxima_nova_bold.eot');
+  src: url('fonts/mark_simonson_-_proxima_nova_bold.eot?#iefix')
+      format('embedded-opentype'),
+    url('fonts/mark_simonson_-_proxima_nova_bold.woff2') format('woff2'),
+    url('fonts/mark_simonson_-_proxima_nova_bold.woff') format('woff'),
+    url('fonts/mark_simonson_-_proxima_nova_bold.svg#proxima_novabold')
+      format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProximaNova';
+  src: url('fonts/mark_simonson_-_proxima_nova_it.eot');
+  src: url('fonts/mark_simonson_-_proxima_nova_it.eot?#iefix')
+      format('embedded-opentype'),
+    url('fonts/mark_simonson_-_proxima_nova_it.woff2') format('woff2'),
+    url('fonts/mark_simonson_-_proxima_nova_it.woff') format('woff'),
+    url('fonts/mark_simonson_-_proxima_nova_it.svg#proxima_novaitalic')
+      format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ProximaNova';
+  src: url('fonts/mark_simonson_-_proxima_nova.eot');
+  src: url('fonts/mark_simonson_-_proxima_nova.eot?#iefix')
+      format('embedded-opentype'),
+    url('fonts/mark_simonson_-_proxima_nova.woff2') format('woff2'),
+    url('fonts/mark_simonson_-_proxima_nova.woff') format('woff'),
+    url('fonts/mark_simonson_-_proxima_nova.svg#proxima_novaregular')
+      format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.heading {
+  font-family: 'ProximaNova', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  @apply font-bold tracking-tighter text-indigo-900;
+}
+
 h1 {
-  @apply font-bold text-3xl tracking-tighter text-indigo-900;
+  @apply heading text-3xl;
 }
 
 h2 {
-  @apply font-bold text-2xl tracking-tighter text-indigo-900;
+  @apply heading text-2xl;
 }
 
 h3 {
-  @apply font-bold text-xl tracking-tighter text-indigo-900;
+  @apply heading text-xl;
 }
 
 .mode-dark h1,

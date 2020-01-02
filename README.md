@@ -1,6 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e4fca50e-05f7-415e-950f-725bbabe781e/deploy-status)](https://app.netlify.com/sites/rr-starter-kit/deploys)
 
-# RR Starter kit 2020
+# [RR Starter-kit 2020](https://rr-starter-kit.netlify.com/)
 
 A front-end starter-kit for quickly getting a new UI up and running using React and Redux Toolkit.
 

@@ -1,4 +1,6 @@
-# RR Starter-kit 2020
+# [RR Starter-kit 2020](https://rr-starter-kit.netlify.com/)
+
+A front-end starter-kit for quickly getting a new UI up and running using React and Redux Toolkit.
 
 This is an in-depth documentation of the technologies
 used in the starter-kit and the reasonings behind them.
@@ -6,16 +8,98 @@ used in the starter-kit and the reasonings behind them.
 ## Purpose
 
 A batteries included front-end starter-kit for 2020.
+This is my personal go-to set of tools for bootstrapping new projects. It quite a bit more than simply some pre-installed packages and a barebones example, as this covers everything from development experience and CI to Github project management and continuous deployment.
+
+## What's included
+
+The RR Starter-kit itself comes with a fully working example application. React and Redux Toolkit (with Typescript) is at the core of this starter kit. The starter-kit is bootstrapped using Create-React-App, and has not been ejected. As the project uses Typescript, ESLint and Prettier have been configured to handle linting and autofixing syntax problems. The project comes bundled with a simple Github workflow for Continuous Integration and default Github Issues and Pull Request templates.
+
+It is out-of-the-box compatible with deployments to static hosting providers such as Netlify and Zeit.
 
 ## Project
+
+This section will go through the development experience related parts of the project, from folder structure to npm scripts, Typescript configurations to linting rules.
+
 ### Folder structure
+
+Because the starter-kit is making use of a non-ejected Create-React-App (CRA) as it's foundation everything application related is located within the `src` folder.
+
+```
+rr-starter-kit/
+  README.md
+  node_modules/
+  .nvmrc
+  .prettierrc
+  package.json
+  postcss.config.js
+  tailwind.config.js
+  tsconfig.json
+  public/
+    _redirects
+    index.html
+    favicon.ico
+  src/
+    index.tsx
+    tailwind.css
+    api/
+    app/
+      App.tsx
+      rootReducer.ts
+      store.ts
+    components/
+    features/
+    pages/
+```
+
+- `root`: The application starts in `index.tsx` where we initialize the React application and provide it a store using Redux Toolkit:
+
+```
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root'),
+);
+```
+
+- `app`: The core of the application is found in the `app` folder.
+  Here the `store`, `rootReducer` and `Router` are all configured.
+- `api`: This is where the logic to call external services goes.
+- `components`: reusable simple components like buttons, alerts etc.
+- `features`: more complex features that make us of Redux
+- `pages`: navigational pages, the root level component housing the part of the application that lives at that route
+
 ### Typescript
+
+The project uses Typescript throughout. Some sensible defaults have been configured in `tsconfig.json`. Most notable addition is using absolute paths for all imports, with `src` as the `baseUrl`. This allows us to do imports throughout the project in the followin way: `import themeReducer from 'features/theme/themeSlice';`. This is more readable and clear than using relative paths.
+
 ### ESLint
+
+Extended ESLint to work with Typescript.
+
+```
+"eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "react-app",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "prettier/prettier": "error"
+    }
+  },
+```
+
 ### Prettier
 
+Configured prettier to work correctly with ESLint, autoformatting according to the ESLint rules.
+
 ## Stack
+
 ### React
+
 ### Redux Toolkit
+
 Used in this example to manage the global state, consisting of the
 dark mode setting and the fetching of poems.
 
@@ -37,22 +121,35 @@ const poemsSlice = createSlice({
 ```
 
 ### Axios
+
 ### Tailwind CSS
 
 ## Testing
+
 ### Jest
+
 ### Enzyme
+
 ### Debugging
 
 ## CI/CD
+
 ### Github Actions
+
 Github actions for CI
+
 ### Auto Deployment
+
 Auto deployment to Netlify
 
 ## RR Starter-kit Example App
+
 ### Async Data
+
 ### Utility-first CSS
+
 ### Dark mode
+
 ### MDX
+
 ### Icons / Images

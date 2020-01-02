@@ -17,9 +17,9 @@ export const Header: React.FC = () => {
     <header className="border-b-2 border-indigo-200 dark:border-indigo-700 bg-white dark:bg-gray-800">
       <nav className="flex items-center justify-between flex-wrap p-6">
         <div className="flex items-center flex-shrink-0 text-indigo-900 dark:text-indigo-200 mr-6">
-          <span className="font-semibold text-xl tracking-tighter">
+          <Link to="/" className="font-semibold text-xl tracking-tighter">
             RR Starter-kit
-          </span>
+          </Link>
         </div>
         <div className="block lg:hidden">
           <button
