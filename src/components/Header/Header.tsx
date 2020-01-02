@@ -64,7 +64,10 @@ export const Header: React.FC = () => {
           <div className="block mt-4 lg:inline-block lg:mt-0 text-indigo-700 hover:text-indigo-900 dark:text-indigo-100 dark-hover:text-indigo-400 mr-4">
             {theme === ThemeMode.DARK ? (
               <>
-                <a className="inline-block mr-4" href="TODO">
+                <a
+                  className="inline-block mr-4"
+                  href="https://github.com/kimrejstrom/rr-starter-kit"
+                >
                   <img
                     src="https://icon.now.sh/github/24/fff"
                     alt="GitHub logo"
@@ -88,7 +91,10 @@ export const Header: React.FC = () => {
               </>
             ) : (
               <>
-                <a className="inline-block mr-4" href="TODO">
+                <a
+                  className="inline-block mr-4"
+                  href="https://github.com/kimrejstrom/rr-starter-kit"
+                >
                   <img
                     src="https://icon.now.sh/github/24/000"
                     alt="GitHub logo"

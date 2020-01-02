@@ -3,7 +3,10 @@ import React from 'react';
 export const Footer: React.FC = () => (
   <footer className="flex justify-center bg-gray-900 dark:bg-black p-4">
     <div className="text-gray-700 text-center px-4 py-2 m-2">
-      <a className="w-1/4 text-white" href="#TODO">
+      <a
+        className="w-1/4 text-white"
+        href="https://github.com/kimrejstrom/rr-starter-kit"
+      >
         <svg
           data-icon="github"
           viewBox="0 0 32 32"
