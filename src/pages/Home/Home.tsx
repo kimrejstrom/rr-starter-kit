@@ -25,7 +25,10 @@ export const Home: React.FC = () => (
         <span className="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">
           New
         </span>
-        <a href="#TODO" className="font-semibold mr-2 text-left flex-auto">
+        <a
+          href="https://github.com/kimrejstrom/rr-starter-kit"
+          className="font-semibold mr-2 text-left flex-auto"
+        >
           Check out the full project on Github
         </a>
         <svg
