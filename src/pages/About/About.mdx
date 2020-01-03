@@ -98,29 +98,70 @@ Configured prettier to work correctly with ESLint, autoformatting according to t
 
 ### React
 
+There is not much special in the React setup other than the lack of `classes`.
+Everything is a component, making use of React `hooks` when needed:
+
+```tsx
+export const Header: React.FC = () => {
+  // Open mobile menu open
+  const [open, setOpen] = useState(false);
+  ...
+}
+```
+
 ### Redux Toolkit
 
-Used in this example to manage the global state, consisting of the
-dark mode setting and the fetching of poems.
+Used in the demo example to manage the global state, consisting of the
+of the fetched remote data: `jokes` and the global dark mode.
+
+With Redux Toolkit the required boilerplate for Redux is kept at a minimum.
+The `createSlice` is a function that accepts an initial state, an object full of reducer functions, and a "slice name", and automatically generates action creators and action types that correspond to the reducers and state.
 
 ```ts
-const poemsSlice = createSlice({
-  name: 'poems',
-  initialState: poemsInitialState,
+const jokesSlice = createSlice({
+  name: 'jokes',
+  initialState: jokesInitialState,
   reducers: {
-    getPoemsStart: startLoading,
-    getPoemsSuccess(state, { payload }: PayloadAction<PoemsResult>) {
-      const { poems } = payload;
-      state.poems = poems;
+    getJokesStart: startLoading,
+    getJokesSuccess(state, { payload }: PayloadAction<Jokes>) {
+      const { jokes } = payload;
+      state.jokes = jokes;
       state.isLoading = false;
       state.error = null;
     },
-    getPoemsFailure: loadingFailed,
+    getJokesFailure: loadingFailed,
   },
 });
 ```
 
 ### Axios
+
+Axios is used in favor of `fetch` to interface with any external services.
+All outgoing request logic is located in the `api` folder.
+
+```ts
+export async function getRandomJokes(): Promise<Jokes> {
+  const url = `https://official-joke-api.appspot.com/jokes/ten`;
+
+  const jokesResponse = await axios.get<Joke[]>(url);
+  return { jokes: jokesResponse.data };
+}
+```
+
+We are using `redux-thunk` to handle dispatching of async actions.
+Here the `fetchJokes` function is using `async / await` to handle the fetching of remote data:
+
+```ts
+export const fetchJokes = (): AppThunk => async dispatch => {
+  try {
+    dispatch(getJokesStart());
+    const randomJokes = await getRandomJokes();
+    dispatch(getJokesSuccess(randomJokes));
+  } catch (err) {
+    dispatch(getJokesFailure(err.toString()));
+  }
+};
+```
 
 ### Tailwind CSS
 

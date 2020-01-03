@@ -658,6 +658,8 @@ video {
   font-style: normal;
 }
 
+/* Headings */
+
 .heading {
   font-family: 'ProximaNova', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
@@ -703,15 +705,42 @@ h3 {
   color: #c3dafe;
 }
 
+/* Code blocks */
+
 pre {
-  font-size: 0.875rem;
   background-color: #1a202c;
-  color: #9ae6b4;
   padding: 1rem;
   border-radius: 0.25rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+.mdx code {
+  font-size: 0.875rem;
+  background-color: #edf2f7;
+  color: #1a202c;
+  padding: 1px;
+  border-radius: 0.25rem;
+}
+
+.mdx pre code {
+  font-size: 0.875rem;
+  background-color: #1a202c;
+  color: #9ae6b4;
+}
+
+.mode-dark .mdx code {
+  background-color: #4a5568;
+  color: #edf2f7;
+}
+
+.mode-dark .mdx pre code {
+  font-size: 0.875rem;
+  background-color: #1a202c;
+  color: #9ae6b4;
+}
+
+/* Spinners */
 
 .spinner {
   border-width: 4px;
