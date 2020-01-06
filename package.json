@@ -40,7 +40,7 @@
     "lint:fix": "eslint --fix --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
     "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'",
     "build:styles": "postcss src/tailwind.css -o src/styles.css",
-    "prebuild": "npm run build:styles",
+    "prebuild": "NODE_ENV=production npm run build:styles",
     "prestart": "npm run build:styles"
   },
   "scriptsComments": {

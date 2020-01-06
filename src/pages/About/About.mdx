@@ -148,7 +148,7 @@ export async function getRandomJokes(): Promise<Jokes> {
 }
 ```
 
-We are using `redux-thunk` to handle dispatching of async actions.
+The starter-kit is using `redux-thunk` to handle dispatching of async actions. Redux-thunk is the default middleware bundled with Redux Toolkit for handling async actions and side-effects.
 Here the `fetchJokes` function is using `async / await` to handle the fetching of remote data:
 
 ```ts
@@ -165,23 +165,84 @@ export const fetchJokes = (): AppThunk => async dispatch => {
 
 ### Tailwind CSS
 
+Utility first CSS library that allows you to quickly create any kind of style and components you need without the need to actually write any additional CSS.
+Instead of defining a bunch of styles per component, Tailwind encourages you to build re-usable components that make use of the existing utility classes that exist in Tailwind already.
+
+Because the CRA app is not ejected, the CSS processing is done using PostCSS and not Webpack.
+There are three main files for any Tailwind project:
+
+- `tailwind.config.js` the main configuration file: here you can extend and modify the base config of Tailwin to suit your needs
+- `postcss.config.js` the "build" configuration, here you configure rules for the built production version of your css
+- `src/tailwind.css` the only CSS file you need to have in your project. This is where you add any actual CSS classes or modifications to existing Tailwind rules if needed.
+
 ## Testing
 
-### Jest
+The starter-kit comes setup with Jest as the test-runner, makes use of Jests own assertion library and uses Enzyme on top of that for shallow render testing of React components.
 
-### Enzyme
+Shallow rendering allows us to render only the component we are testing without the need to render the entire application tree:
+
+```tsx
+it('renders welcome message', () => {
+  const wrapper = shallow(<Home />);
+  const welcome = <h1 className="text-center">RR Starter-kit 2020</h1>;
+  expect(wrapper).toContainReact(welcome);
+});
+```
 
 ### Debugging
 
+Debugging in VSCode is super easy with a project bootstrapped using CRA.
+This project uses two disting launch configurations for VSCode debugging: one for actual application debugging using Chrome Debugger and the other for debugging tests using the built in debugger in VSCode.
+
+Here are the launch configurations:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Debug on Chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/src",
+      "sourceMapPathOverrides": {
+        "webpack:///src/*": "${webRoot}/*"
+      }
+    },
+    {
+      "name": "Debug Tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/react-scripts",
+      "args": ["test", "--runInBand", "--no-cache", "--watchAll=false"],
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "env": { "CI": "true" },
+      "disableOptimisticBPs": true
+    }
+  ]
+}
+```
+
 ## CI/CD
+
+The project comes with an automated CI (Continuous Integration) and CD (Continuous Deployment) pipeline built in.
+This means that whenever you create a Pull-Request on Github or commit something to `master`. The code is automatically tested and if deemed error-free deployed to production.
 
 ### Github Actions
 
-Github actions for CI
+The project is using a Github Workflow with some basic Github actions for automated testing.
+The code is checked out, packages are installed (and cached for faster run times) then the code is typechecked, linted and the test suite is run.
+
+If there are problems with the build Github highlights the failed build and notifies you.
+If the tests pass the succesful commit will be picked up by Netlify and autodeployed.
 
 ### Auto Deployment
 
-Auto deployment to Netlify
+Auto deployment to Netlify. This is mostly configured through the Netlify web console: you connect your repository to Netlify, configure a build command, an ouput folder and some deployment rules and after that it just works!
 
 ## RR Starter-kit Example App
 
