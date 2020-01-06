@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'app/rootReducer';
@@ -12,6 +12,16 @@ export const Header: React.FC = () => {
 
   // Get theme from Redux
   const theme = useSelector((state: RootState) => state.theme);
+  // Support for OS level color preference
+  useEffect(() => {
+    if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches &&
+      theme === ThemeMode.DEFAULT
+    ) {
+      dispatch(setThemeMode(ThemeMode.DARK));
+    }
+  });
 
   return (
     <header className="border-b-2 border-indigo-200 dark:border-indigo-700 bg-white dark:bg-gray-800">
