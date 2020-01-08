@@ -1,3 +1,5 @@
+import Button from 'components/Button/Button';
+
 # [RR Starter-kit 2020](https://rr-starter-kit.netlify.com/)
 
 A front-end starter-kit for quickly getting a new UI up and running using React and Redux Toolkit.
@@ -134,35 +136,6 @@ const jokesSlice = createSlice({
 });
 ```
 
-### Axios
-
-Axios is used in favor of `fetch` to interface with any external services.
-All outgoing request logic is located in the `api` folder.
-
-```ts
-export async function getRandomJokes(): Promise<Jokes> {
-  const url = `https://official-joke-api.appspot.com/jokes/ten`;
-
-  const jokesResponse = await axios.get<Joke[]>(url);
-  return { jokes: jokesResponse.data };
-}
-```
-
-The starter-kit is using `redux-thunk` to handle dispatching of async actions. Redux-thunk is the default middleware bundled with Redux Toolkit for handling async actions and side-effects.
-Here the `fetchJokes` function is using `async / await` to handle the fetching of remote data:
-
-```ts
-export const fetchJokes = (): AppThunk => async dispatch => {
-  try {
-    dispatch(getJokesStart());
-    const randomJokes = await getRandomJokes();
-    dispatch(getJokesSuccess(randomJokes));
-  } catch (err) {
-    dispatch(getJokesFailure(err.toString()));
-  }
-};
-```
-
 ### Tailwind CSS
 
 Utility first CSS library that allows you to quickly create any kind of style and components you need without the need to actually write any additional CSS.
@@ -248,10 +221,112 @@ Auto deployment to Netlify. This is mostly configured through the Netlify web co
 
 ### Async Data
 
+Axios is used to interface with external services.
+All outgoing request logic is located in the `api` folder.
+
+```ts
+export async function getRandomJokes(): Promise<Jokes> {
+  const url = `https://official-joke-api.appspot.com/jokes/ten`;
+
+  const jokesResponse = await axios.get<Joke[]>(url);
+  return { jokes: jokesResponse.data };
+}
+```
+
+The starter-kit is using `redux-thunk` to handle dispatching of async actions. Redux-thunk is the default middleware bundled with Redux Toolkit for handling async actions and side-effects.
+Here the `fetchJokes` function is using `async / await` to handle the fetching of remote data:
+
+```ts
+export const fetchJokes = (): AppThunk => async dispatch => {
+  try {
+    dispatch(getJokesStart());
+    const randomJokes = await getRandomJokes();
+    dispatch(getJokesSuccess(randomJokes));
+  } catch (err) {
+    dispatch(getJokesFailure(err.toString()));
+  }
+};
+```
+
 ### Utility-first CSS
+
+Instead of writing custom CSS you compose your components using the utility classes provided by Tailwind.
+This makes for super quick development once you get familiar with the syntax.
+
+Basically you end up with components and layouts like this:
+
+```tsx
+<header className="border-b-2 border-indigo-200 dark:border-indigo-700 bg-white dark:bg-gray-800">
+  <nav className="flex items-center justify-between flex-wrap p-6">
+    <div className="flex items-center flex-shrink-0 text-indigo-900 dark:text-indigo-200 mr-6">
+      <Link to="/" className="font-semibold text-xl tracking-tighter">
+        RR Starter-kit
+      </Link>
+    </div>
+  </nav>
+</header>
+```
 
 ### Dark mode
 
+Dark mode is supported in Tailwind via the plugin `tailwindcss-dark-mode`.
+
+What it does is provide Tailwind variants:
+
+- `dark`
+- `dark-hover`
+- `dark-focus`
+- `dark-active`
+- `dark-group-hover`
+- `dark-focus-within`
+
+These can then be used to specify the css class to be used when the `mode-dark` class is present:
+
+```tsx
+<footer className="flex justify-center bg-gray-900 dark:bg-black p-4">
+```
+
+In addition to the CSS we need a way to toggle between the two modes.
+This is done by storing a `theme` variable in Redux that can be toggled from the navigation:
+
+```tsx
+<button
+  className="inline-block"
+  title="Disable Dark Mode"
+  onClick={() => dispatch(setThemeMode(ThemeMode.LIGHT))}
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    width="24"
+    height="24"
+    className="fill-current text-yellow-300"
+  >
+    <path d="M 8 0 A 8 8 0 0 0 8 16 A 8 8 0 0 0 8 0"></path>
+  </svg>
+</button>
+```
+
+There is also support for switching mode depending on the OS level preference for `dark/light` mode.
+That is handled by a `useEffect` hook where we check if the `prefers-color-scheme` exists and whether the user has explicitly set the theme already or not:
+
+```tsx
+if (
+  window.matchMedia &&
+  window.matchMedia('(prefers-color-scheme: dark)').matches &&
+  theme === ThemeMode.DEFAULT
+) {
+  dispatch(setThemeMode(ThemeMode.DARK));
+}
+```
+
 ### MDX
 
-### Icons / Images
+This entire About page is created using MDX. MDX is JSX in Markdown, allowing you to write markdown and inline `jsx` components within your markdown.
+So say you wanted to include a react component in the middle of your markdown text you could simply inline it:
+
+<Button
+  title="My React Component"
+  className="my-4 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full"
+  onClick={() => {}}
+/>

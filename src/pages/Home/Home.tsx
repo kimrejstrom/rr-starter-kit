@@ -10,7 +10,6 @@ export const Home: React.FC = () => (
       <ul className="font-mono">
         <li>Create-React-App</li>
         <li>Redux Toolkit</li>
-        <li>Axios</li>
         <li>Tailwind CSS</li>
         <li>Dark/Light mode</li>
         <li>Github Actions</li>

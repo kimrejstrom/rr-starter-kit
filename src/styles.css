@@ -727,6 +727,7 @@ pre {
   font-size: 0.875rem;
   background-color: #1a202c;
   color: #9ae6b4;
+  white-space: pre-wrap;
 }
 
 .mode-dark .mdx code {

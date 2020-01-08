@@ -93,7 +93,7 @@ pre {
 }
 
 .mdx pre code {
-  @apply text-sm bg-gray-900 text-green-300;
+  @apply text-sm bg-gray-900 text-green-300 whitespace-pre-wrap;
 }
 
 .mode-dark .mdx code {
