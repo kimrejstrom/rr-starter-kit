@@ -14,7 +14,7 @@ const App: React.FC = () => {
   const theme = useSelector((state: RootState) => state.theme);
   return (
     <div
-      className={`theme ${
+      className={`flex flex-col min-h-screen theme ${
         theme === ThemeMode.LIGHT ? 'mode-light' : 'mode-dark'
       }`}
     >
