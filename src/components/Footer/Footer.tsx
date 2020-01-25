@@ -18,26 +18,7 @@ export const Footer: React.FC = () => (
       </a>
     </div>
     <div className="text-gray-700 text-center px-4 py-2 m-2">
-      <div className="text-sm font-light">
-        <a
-          href="#TODO"
-          className="m-2 opacity-75 text-indigo-300 hover:text-indigo-500"
-        >
-          Help
-        </a>
-        <a
-          href="#TODO"
-          className="m-2 opacity-75 text-indigo-300 hover:text-indigo-500"
-        >
-          Send feedback
-        </a>
-        <a
-          href="#TODO"
-          className="m-2 opacity-75 text-indigo-300 hover:text-indigo-500"
-        >
-          Privacy
-        </a>
-      </div>
+      <div className="text-sm font-light">© 2020 Kim Rejström</div>
     </div>
   </footer>
 );
